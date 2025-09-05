@@ -1,0 +1,269 @@
+/* Modern Clean Layout Design */
+
+/* Global reset for clean design */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Layout Container - Clean Modern Design */
+.main-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f8fafc;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Content Area - Responsive to sidebar */
+.content {
+  position: fixed;
+  top: 0;
+  left: 280px; /* Space for sidebar */
+  width: calc(100vw - 280px);
+  height: 100vh;
+  background: #f8fafc;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+/* Content when sidebar is closed */
+.content:not(.open) {
+  left: 0;
+  width: 100vw;
+}
+
+/* Content Header - Compact Clean Design */
+.content-header {
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Sidebar Toggle Button - Compact Modern Design */
+.sidebar-toggle-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin: 0;
+}
+
+.sidebar-toggle-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.sidebar-toggle-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Left section styling */
+.content-header .d-flex:first-child {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Right section styling */
+.content-header .d-flex:last-child {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Theme Toggle Button - Compact Clean Design */
+.theme-toggle-placeholder {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.theme-toggle-placeholder:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+/* User Profile Dropdown - Compact Clean Design */
+.dropdown-toggle {
+  background: transparent !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+  transition: all 0.2s ease !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.dropdown-toggle:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.dropdown-toggle:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dropdown-toggle img {
+  border-radius: 6px;
+}
+
+/* Dropdown Menu - Clean Design */
+.dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+  min-width: 200px;
+  margin-top: 8px !important;
+  border-radius: 12px !important;
+  padding: 8px !important;
+  display: none;
+}
+
+.custom-dropdown {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  right: 0 !important;
+  left: auto !important;
+  min-width: 200px;
+}
+
+.custom-dropdown.show {
+  display: block !important;
+}
+
+.dropdown-item {
+  color: #374151 !important;
+  transition: all 0.2s ease;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  margin: 2px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropdown-item:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+.dropdown-item.text-danger {
+  color: #ef4444 !important;
+}
+
+.dropdown-item.text-danger:hover {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+/* Container Fluid - Compact Clean spacing */
+.container-fluid {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: transparent;
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .content {
+    left: 0 !important;
+    width: 100vw !important;
+  }
+  
+  .content-header {
+    padding: 0 12px;
+  }
+  
+  .container-fluid {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-header {
+    height: 48px;
+    padding: 0 10px;
+  }
+  
+  .sidebar-toggle-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  .theme-toggle-placeholder {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .dropdown-toggle {
+    padding: 4px 8px !important;
+  }
+  
+  .container-fluid {
+    padding: 12px;
+    gap: 12px;
+  }
+}

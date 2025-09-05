@@ -1,0 +1,23 @@
+/* AG Grid theme customization */
+.ag-theme-alpine {
+  --ag-header-background-color: #1976d2;
+  --ag-header-foreground-color: #fff;
+  --ag-row-hover-color: #e3f2fd;
+}
+
+.page-title {
+  color: #1976d2;
+  border-bottom: 2px solid #e3f2fd;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-spin {
+  animation: spin 1s linear infinite;
+}

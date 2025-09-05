@@ -1,0 +1,317 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\RAM_LEARN\\ConfigHub\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\db\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\db\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|d:\\ram_learn\\confighub\\efcore\\models\\confighubcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|solutionrelative:efcore\\models\\confighubcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\controllers\\basecomponentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\controllers\\basecomponentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\respository\\basedatumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\respository\\basedatumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\business\\basedatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\business\\basedatumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\controllers\\basedatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\controllers\\basedatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\shared\\basedatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\shared\\basedatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|d:\\ram_learn\\confighub\\efcore\\models\\basecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|solutionrelative:efcore\\models\\basecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|d:\\ram_learn\\confighub\\confighub\\shared\\basecomponentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD182DD-A463-40D4-8FF2-B6C3B3BB6976}|ConfigHub\\ConfigHub.csproj|solutionrelative:confighub\\shared\\basecomponentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|d:\\ram_learn\\confighub\\efcore\\models\\basedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|solutionrelative:efcore\\models\\basedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|d:\\ram_learn\\confighub\\efcore\\migrations\\confighubcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398B3996-3B44-491A-AC14-09A536B259D4}|EFCore\\EFCore.csproj|solutionrelative:efcore\\migrations\\confighubcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 17,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\DB\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\DB\\DataSeeder.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\DB\\DataSeeder.cs",
+              "RelativeToolTip": "ConfigHub\\DB\\DataSeeder.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAUwHQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T10:55:48.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\appsettings.json",
+              "RelativeDocumentMoniker": "ConfigHub\\appsettings.json",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\appsettings.json",
+              "RelativeToolTip": "ConfigHub\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-13T14:19:08.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BasecomponentController.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Controllers\\BasecomponentController.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Controllers\\BasecomponentController.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Controllers\\BasecomponentController.cs",
+              "RelativeToolTip": "ConfigHub\\Controllers\\BasecomponentController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:53:50.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConfigHubContext.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\ConfigHubContext.cs",
+              "RelativeDocumentMoniker": "EFCore\\Models\\ConfigHubContext.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\ConfigHubContext.cs",
+              "RelativeToolTip": "EFCore\\Models\\ConfigHubContext.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAewCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:52:44.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseDataController.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Controllers\\BaseDataController.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Controllers\\BaseDataController.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Controllers\\BaseDataController.cs",
+              "RelativeToolTip": "ConfigHub\\Controllers\\BaseDataController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADYAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T11:58:13.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BaseDatumService.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Business\\BaseDatumService.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Business\\BaseDatumService.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Business\\BaseDatumService.cs",
+              "RelativeToolTip": "ConfigHub\\Business\\BaseDatumService.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAhwEQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T12:09:03.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Program.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Program.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Program.cs",
+              "RelativeToolTip": "ConfigHub\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T16:47:52.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BasecomponentDto.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Shared\\BasecomponentDto.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Shared\\BasecomponentDto.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Shared\\BasecomponentDto.cs",
+              "RelativeToolTip": "ConfigHub\\Shared\\BasecomponentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:53:19.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseDatumRepository.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Respository\\BaseDatumRepository.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Respository\\BaseDatumRepository.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Respository\\BaseDatumRepository.cs",
+              "RelativeToolTip": "ConfigHub\\Respository\\BaseDatumRepository.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T12:09:25.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BaseDataDto.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Shared\\BaseDataDto.cs",
+              "RelativeDocumentMoniker": "ConfigHub\\Shared\\BaseDataDto.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\ConfigHub\\Shared\\BaseDataDto.cs",
+              "RelativeToolTip": "ConfigHub\\Shared\\BaseDataDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T12:38:46.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BaseDefinition.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\BaseDefinition.cs",
+              "RelativeDocumentMoniker": "EFCore\\Models\\BaseDefinition.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\BaseDefinition.cs",
+              "RelativeToolTip": "EFCore\\Models\\BaseDefinition.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:51:37.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Basecomponent.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\Basecomponent.cs",
+              "RelativeDocumentMoniker": "EFCore\\Models\\Basecomponent.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Models\\Basecomponent.cs",
+              "RelativeToolTip": "EFCore\\Models\\Basecomponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:50:59.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConfigHubContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Migrations\\ConfigHubContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "EFCore\\Migrations\\ConfigHubContextModelSnapshot.cs",
+              "ToolTip": "D:\\RAM_LEARN\\ConfigHub\\EFCore\\Migrations\\ConfigHubContextModelSnapshot.cs",
+              "RelativeToolTip": "EFCore\\Migrations\\ConfigHubContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:49:35.25Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 406,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 406,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

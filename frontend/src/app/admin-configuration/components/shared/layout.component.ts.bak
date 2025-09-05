@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+import { AdminapiService } from '../../admin/services/adminapi.service';
+
+@Component({
+  selector: 'app-admin-configuration-layout',
+  templateUrl: './layout.component.html'
+})
+export class AdminConfigurationLayoutComponent implements OnInit {
+  isSidebarOpen = false;
+
+  constructor(private readonly adminapiService: AdminapiService) {}
+
+  ngOnInit() {
+    this.adminapiService.isSidebarOpen$.subscribe((isOpen) => {
+      this.isSidebarOpen = isOpen;
+    });
+  }
+}

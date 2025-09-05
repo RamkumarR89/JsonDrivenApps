@@ -1,0 +1,29 @@
+/* Navbar Component Styles */
+:host {
+  display: block;
+}
+
+.navbar {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 1rem;
+}
+
+.btn-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

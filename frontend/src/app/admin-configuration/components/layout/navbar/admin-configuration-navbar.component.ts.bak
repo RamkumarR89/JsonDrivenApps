@@ -1,0 +1,91 @@
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AdminapiService } from '../../../admin/services/adminapi.service';
+import { User } from '../../../shared/models/user';
+
+@Component({
+  selector: 'app-admin-configuration-navbar',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './admin-configuration-navbar.component.html',
+  styleUrls: ['./admin-configuration-navbar.component.css']
+})
+export class AdminConfigurationNavbarComponent implements OnInit, OnDestroy, AfterViewInit {
+  isSidebarOpen = true; // Start with sidebar open
+  isDropdownOpen = false;
+  userData: User = {} as User;
+  private userDataSubscription: Subscription = new Subscription();
+  private sidebarSubscription: Subscription = new Subscription();
+
+  constructor(
+    private readonly adminapiService: AdminapiService,
+    private readonly router: Router,
+    private readonly elementRef: ElementRef
+  ) {}
+
+  toggleSidebar() {
+    console.log('Toggle sidebar clicked - current state:', this.isSidebarOpen);
+    this.adminapiService.toggleSidebar();
+    console.log('Toggle called');
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+    console.log('Dropdown toggled:', this.isDropdownOpen);
+  }
+
+  closeDropdown() {
+    this.isDropdownOpen = false;
+  }
+
+  logout() {
+    console.log('Logout clicked');
+    // Clear user data
+    this.adminapiService.setLoginData({} as User);
+    
+    // Clear local storage if any
+    localStorage.removeItem('userData');
+    localStorage.removeItem('authToken');
+    
+    // Navigate to login page
+    this.router.navigate(['/admin/signin']);
+  }
+
+  ngOnInit() {
+    this.userDataSubscription = this.adminapiService.userData$.subscribe((data) => {
+      this.userData = data;
+    });
+
+    this.sidebarSubscription = this.adminapiService.isSidebarOpen$.subscribe((isOpen) => {
+      this.isSidebarOpen = isOpen;
+      console.log('Sidebar state changed:', isOpen);
+    });
+  }
+
+  ngAfterViewInit() {
+    // Fix dropdown positioning after view initialization
+    setTimeout(() => {
+      const dropdownMenus = this.elementRef.nativeElement.querySelectorAll('.dropdown-menu');
+      dropdownMenus.forEach((menu: HTMLElement) => {
+        menu.style.right = '0';
+        menu.style.left = 'auto';
+        menu.style.transform = 'none';
+      });
+    }, 100);
+
+    // Add click outside listener
+    document.addEventListener('click', (event) => {
+      const dropdown = this.elementRef.nativeElement.querySelector('.dropdown');
+      if (dropdown && !dropdown.contains(event.target)) {
+        this.isDropdownOpen = false;
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.userDataSubscription.unsubscribe();
+    this.sidebarSubscription.unsubscribe();
+  }
+}

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/adminconfiguration/baseconfiguration">Base Component</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Definition List {{ componentId ? 'for Component ID: ' + componentId : '' }}</li>
+    </ol>
+  </nav>
+  
+  <!-- Secondary Navigation -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" *ngIf="componentId">
+        <a (click)="goToBaseData(componentId)">Base Data</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a (click)="goToCreateDefinition()">New Definition</a>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Add New Definition Button -->
+  <div class="d-flex justify-content-end mb-4">
+    <button class="btn btn-primary" (click)="addDefinition()">
+      <i class="fas fa-plus me-2"></i>Add New Definition
+    </button>
+  </div>
+
+  <!-- Loading and Error States -->
+  <div *ngIf="loading" class="alert alert-info mb-4">
+    <i class="fas fa-spinner fa-spin me-2"></i> Loading definitions...
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger mb-4">
+    <i class="fas fa-exclamation-circle me-2"></i> {{ error }}
+  </div>
+
+  <!-- Grid -->
+  <ag-grid-angular 
+    style="width: 100%; height: calc(100vh - 150px);"
+    class="ag-theme-alpine mb-4"
+    [columnDefs]="columnDefs"
+    [sortingOrder]="sortingOrder"
+    [animateRows]="true"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    [rowData]="rowData"
+    [enableRangeSelection]="true"
+    [defaultColDef]="defaultColDef"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+</div>

@@ -1,0 +1,61 @@
+<div class="page-container">
+  <!-- Error Alert -->
+  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    {{ error }}
+    <button type="button" class="btn-close" (click)="error = null" aria-label="Close"></button>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="loading" class="text-center py-4">
+    <div class="spinner-border text-primary">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2 text-muted">Loading components...</p>
+  </div>
+
+  <!-- Enhanced Page Header -->
+  <div class="page-header slide-in-up">
+    <div class="d-flex align-items-center justify-content-between d-flex-mobile-column">
+      <div class="text-center-mobile">
+        <h2 class="mb-2"><i class="fas fa-cubes me-3"></i>Base Components</h2>
+        <p class="mb-0 opacity-90">Manage your application's base components with full CRUD operations</p>
+      </div>
+      <div class="d-flex gap-2 d-flex-mobile-column w-100-mobile">
+        <button class="themed-btn themed-btn-primary" (click)="createNewComponent()" [disabled]="loading">
+          <i class="fas fa-plus me-2"></i><span class="d-none d-sm-inline">Create New Component</span><span class="d-inline d-sm-none">Create</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Components Grid -->
+  <div class="content-card slide-in-up">
+    <div class="card-header-themed">
+      <h5 class="mb-0"><i class="fas fa-list me-2"></i>Components List - AG Grid</h5>
+      <span class="badge bg-light text-dark">{{ components.length }} Total</span>
+    </div>
+    <div class="card-body-themed p-3">
+      <!-- AG Grid Container -->
+      <div class="ag-grid-container" style="height: 400px; width: 100%; min-height: 350px; max-height: 50vh;">
+        <ag-grid-angular
+          [columnDefs]="columnDefs"
+          [rowData]="components"
+          [gridOptions]="gridOptions"
+          [loading]="loading"
+          (gridReady)="onGridReady($event)"
+          style="height: 100%; width: 100%;">
+        </ag-grid-angular>
+      </div>
+
+      <!-- Empty State for AG Grid -->
+      <div *ngIf="components.length === 0 && !loading" class="text-center py-5">
+        <div class="d-flex flex-column align-items-center themed-empty-state">
+          <i class="fa fa-inbox fa-3x mb-3"></i>
+          <h5>No Components Found</h5>
+          <p class="mb-0">Click "Create New Component" to get started</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

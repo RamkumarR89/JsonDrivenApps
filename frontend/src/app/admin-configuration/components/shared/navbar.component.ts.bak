@@ -1,0 +1,34 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AdminapiService } from '../../admin/services/adminapi.service';
+import { User } from '../../shared/models/user';
+
+@Component({
+  selector: 'admin-configuration-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class AdminConfigNavbarComponent implements OnInit, OnDestroy {
+  isSidebarOpen = false;
+  userData: User = {} as User;
+  private userDataSubscription: Subscription = new Subscription();
+  
+  constructor(private readonly adminapiService: AdminapiService) {}
+
+  toggleSidebar() {
+    this.adminapiService.toggleSidebar();
+    this.adminapiService.isSidebarOpen$.subscribe((isOpen) => {
+      this.isSidebarOpen = isOpen;
+    });
+  }
+
+  ngOnInit() {
+    this.userDataSubscription = this.adminapiService.userData$.subscribe((data) => {
+      this.userData = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.userDataSubscription.unsubscribe();
+  }
+}

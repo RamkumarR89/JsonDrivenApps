@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand themed-navbar sticky-top px-4 py-0">
+  <!-- Left side - Brand and Toggle -->
+  <div class="d-flex align-items-center">
+    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+      <h2 class="text-primary mb-0">
+        <i class="fa fa-hashtag" aria-hidden="true"></i>
+        <span class="visually-hidden">Letz Buzz</span>
+      </h2>
+    </a>
+    <a class="sidebar-toggler flex-shrink-0" (click)="toggleSidebar()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  
+  <!-- Right side - Theme and User Profile -->
+  <div class="d-flex align-items-center ms-auto gap-3">
+    <!-- Theme Toggle Coming Soon -->
+    <div class="nav-item">
+      <button class="theme-toggle-placeholder" title="Theme Toggle (Coming Soon)">
+        <i class="fa fa-palette"></i>
+        <span class="theme-name d-none d-md-inline">Theme</span>
+      </button>
+    </div>
+    
+    <!-- User Profile Dropdown -->
+    <div class="nav-item dropdown position-relative">
+      <button class="nav-link dropdown-toggle d-flex align-items-center border-0 bg-transparent" 
+              (click)="toggleDropdown()" type="button">
+        <img class="rounded-circle me-lg-2" src="../../../assets/img/user.jpg" alt="User Avatar" style="width: 40px; height: 40px;">
+        <span class="d-none d-lg-inline-flex">
+          @if (userData.displayName) {
+            {{userData.displayName}}
+          } @else {
+            Admin
+          }
+        </span>
+      </button>
+      <ul class="dropdown-menu custom-dropdown" [class.show]="isDropdownOpen">
+        <li><a [routerLink]="['/admin/signup']" class="dropdown-item" (click)="closeDropdown()">
+          <i class="fa fa-user me-2"></i>My Profile
+        </a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a href="#" class="dropdown-item text-danger" (click)="logout(); closeDropdown(); $event.preventDefault()">
+          <i class="fa fa-sign-out-alt me-2"></i>Log Out
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

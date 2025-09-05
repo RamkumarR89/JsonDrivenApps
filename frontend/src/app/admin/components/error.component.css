@@ -1,0 +1,32 @@
+/* Import admin common styles */
+@import '../styles/admin-common.css';
+
+/* Error-specific styles */
+.error-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-icon svg {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gap-3 {
+  gap: 16px;
+}

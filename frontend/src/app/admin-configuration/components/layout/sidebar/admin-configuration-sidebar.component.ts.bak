@@ -1,0 +1,109 @@
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { map, Subscription } from 'rxjs';
+import { AdminapiService } from '../../../admin/services/adminapi.service';
+import { User } from '../../../shared/models/user';
+import { BaseConfigurationapiService } from '../../../services/base-configurationapi.service';
+import { MasterBaseConfigurationapiService } from '../../../services/master-base-configurationapi.service';
+
+@Component({
+  selector: 'app-admin-configuration-sidebar',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './admin-configuration-sidebar.component.html',
+  styleUrls: ['./admin-configuration-sidebar.component.css'],
+})
+export class AdminConfigurationSidebarComponent implements OnInit {
+  isSidebarOpen = true; // Start with sidebar open
+  userData: User = {} as User;
+  private userDataSubscription: Subscription = new Subscription();
+  menuItems: any[] = [];
+  hierarchicalMenu: any[] = [];
+
+  constructor(
+    private readonly adminapiService: AdminapiService,
+    private readonly serviceapi: BaseConfigurationapiService,
+    private readonly masterserviceapi: MasterBaseConfigurationapiService,
+    private readonly router: Router,
+    private readonly cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit() {
+    this.adminapiService.isSidebarOpen$.subscribe((isOpen) => {
+      this.isSidebarOpen = isOpen;
+    });
+    this.userDataSubscription = this.adminapiService.userData$.subscribe((data) => {
+      this.userData = data;
+    });
+    this.menuitem();
+  }
+
+  menuitem() {
+    this.serviceapi
+      .getpcomplistData()
+      .pipe(
+        map((res: any) => {
+          return (res || []).map((item: any) => ({
+            id: item.id.toString(),
+            name: item.displayName,
+            parentComponent: item.parentComponent,
+            componentJson: item.componentJson,
+            isMaster: item.isMaster,
+          }));
+        })
+      )
+      .subscribe((result: any[]) => {
+        this.menuItems = result;
+        const menuMap = new Map<number, any>();
+        this.menuItems.forEach((item) => {
+          menuMap.set(Number(item.id), item);
+        });
+        this.hierarchicalMenu = this.buildMenuTree(menuMap);
+      });
+  }
+
+  buildMenuTree(menuItems: Map<number, any>): any[] {
+    const roots: any[] = [];
+    menuItems.forEach((item) => {
+      const parentId = +item.parentComponent;
+      if (parentId === 0) {
+        roots.push(item);
+      } else {
+        const parent = menuItems.get(parentId);
+        if (parent) {
+          if (!parent.children) {
+            parent.children = [];
+          }
+          parent.children.push(item);
+        }
+      }
+    });
+    return roots;
+  }
+
+  onMenuClick(item: any): void {
+    let baseRoute = 'basedata';
+    if (item.isMaster) {
+      baseRoute = 'masterdata';
+    }
+    const componentId = item.id;
+    if (componentId) {
+      this.adminapiService.setComponentId(componentId.toString());
+      this.cdr.detectChanges();
+      this.router.navigateByUrl(`/adminconfiguration/${baseRoute}/${componentId}`);
+    }
+  }
+
+  toggleSubMenu(event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    const currentTarget = event.currentTarget as HTMLElement | null;
+    if (currentTarget) {
+      const target = currentTarget.nextElementSibling as HTMLElement | null;
+      if (target) {
+        target.classList.toggle('show');
+      }
+    }
+  }
+}

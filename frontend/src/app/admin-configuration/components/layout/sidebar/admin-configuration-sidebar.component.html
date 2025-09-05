@@ -1,0 +1,68 @@
+<div class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+  <!-- Sidebar Header - Clean Brand -->
+  <div class="sidebar-header">
+    <a class="sidebar-brand" href="#">
+      <div class="brand-icon">
+        <i class="fas fa-layer-group"></i>
+      </div>
+      <span>ConfigHub</span>
+    </a>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar-nav">
+    <!-- Static Navigation Section -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-tachometer-alt me-2"></i>
+        Navigation
+      </div>
+      
+      <div class="menu-item" (click)="navigateToBaseConfiguration()">
+        <i class="fas fa-cogs me-2"></i>
+        Base Component
+      </div>
+      
+      <div class="menu-item" (click)="navigateToMasterConfiguration()">
+        <i class="fas fa-crown me-2"></i>
+        Master Component
+      </div>
+    </div>
+
+    <!-- Dynamic Hierarchical Menu Section -->
+    <div class="nav-section">
+      <div class="nav-section-title">
+        <i class="fas fa-sitemap me-2"></i>
+        Component Tree
+      </div>
+      
+      <!-- Loading State -->
+      <div *ngIf="loading" class="loading-state">
+        <i class="fas fa-spinner fa-spin"></i>
+        Loading menu...
+      </div>
+      
+      <!-- Error State -->
+      <div *ngIf="error" class="error-state">
+        <i class="fas fa-exclamation-triangle"></i>
+        {{ error }}
+      </div>
+      
+      <!-- Hierarchical Menu -->
+      <div *ngIf="!loading && !error" class="hierarchical-menu-container">
+        <hierarchical-menu
+          [menuItems]="hierarchicalMenu"
+          (menuItemClick)="onMenuClick($event)">
+        </hierarchical-menu>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar Footer - Clean Info -->
+  <div class="sidebar-footer">
+    <div class="footer-info">
+      <div class="footer-version">ConfigHub v2.1</div>
+      <div>© 2025 All rights reserved</div>
+    </div>
+  </div>
+</div>

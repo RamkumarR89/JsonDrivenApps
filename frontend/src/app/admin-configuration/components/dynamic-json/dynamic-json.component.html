@@ -1,0 +1,52 @@
+<!-- Dynamic JSON Component Template -->
+<div class="dynamic-json-builder">
+  <h3>Form Builder</h3>
+  
+  <div class="field-controls">
+    <button (click)="addField({label: 'Text Input', type: 'text'})" class="btn btn-primary me-2">
+      Add Text Field
+    </button>
+    <button (click)="addField({label: 'Number Input', type: 'number'})" class="btn btn-primary me-2">
+      Add Number Field
+    </button>
+    <button (click)="addField({label: 'Select', type: 'select'})" class="btn btn-primary me-2">
+      Add Select Field
+    </button>
+  </div>
+
+  <div class="form-builder">
+    
+    <div *ngFor="let field of formFields; let i = index" class="form-field">
+      <div class="field-content">
+        <label [for]="field.id">{{ field.label }}</label>
+        <input *ngIf="field.type === 'text' || field.type === 'number'" 
+               [type]="field.type" 
+               [id]="field.id"
+               class="form-control"
+               [placeholder]="'Sample ' + field.type + ' input'">
+        <select *ngIf="field.type === 'select'" [id]="field.id" class="form-control">
+          <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="field-settings">
+        <button class="btn btn-sm btn-secondary" 
+                (click)="openSettings(field)"
+                (keydown.enter)="openSettings(field)"
+                [attr.aria-label]="'Settings for ' + field.label">
+          <i class="fa fa-cog"></i>
+        </button>
+        <button class="btn btn-sm btn-danger ms-1" 
+                (click)="removeField(i)"
+                (keydown.enter)="removeField(i)"
+                [attr.aria-label]="'Remove ' + field.label">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <h4>Generated JSON:</h4>
+    <pre>{{ formFields | json }}</pre>
+  </div>
+</div>

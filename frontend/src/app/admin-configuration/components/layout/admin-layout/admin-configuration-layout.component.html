@@ -1,0 +1,49 @@
+<div class="main-layout">
+    <!-- Sidebar Start - Clean Navigation Design -->
+    <app-sidebar [ngClass]="{'open': isSidebarOpen}"></app-sidebar>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content" [ngClass]="{'open': isSidebarOpen}">
+        <!-- Sidebar Toggle Button -->
+        <div class="content-header d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <button class="sidebar-toggle-btn" (click)="toggleSidebar()" type="button" 
+                        title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-placeholder" title="Theme Toggle (Coming Soon)">
+                    <i class="fa fa-palette"></i>
+                    <span class="theme-name d-none d-md-inline">Theme</span>
+                </button>
+                
+                <!-- User Profile Dropdown -->
+                <div class="nav-item dropdown position-relative">
+                    <button class="nav-link dropdown-toggle d-flex align-items-center border-0 bg-transparent" 
+                            (click)="toggleDropdown()" type="button">
+                        <img class="rounded-circle me-lg-2" src="../../../assets/img/user.jpg" alt="User Avatar" style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex">Admin</span>
+                    </button>
+                    <ul class="dropdown-menu custom-dropdown" [class.show]="isDropdownOpen">
+                        <li><a href="#" class="dropdown-item">
+                            <i class="fa fa-user me-2"></i>My Profile
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="#" class="dropdown-item text-danger" (click)="logout(); closeDropdown(); $event.preventDefault()">
+                            <i class="fa fa-sign-out-alt me-2"></i>Log Out
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid pt-4 px-4">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- Content End -->
+</div>

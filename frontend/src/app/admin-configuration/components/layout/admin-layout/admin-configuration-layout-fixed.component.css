@@ -1,0 +1,136 @@
+/* Fixed Layout - Sidebar and Content Responsive */
+
+/* Global reset for no gaps */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Layout Container */
+.main-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+/* Content Area - Full width when sidebar closed */
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Content when sidebar is open - shift right */
+.content.open {
+  left: 250px;
+  width: calc(100vw - 250px);
+}
+
+/* Content Header - Contains fa-bars and controls */
+.content-header {
+  height: 60px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  padding: 0 1rem 0 0; /* No left padding by default */
+}
+
+/* Header when sidebar is closed - fa-bars at very left */
+.content:not(.open) .content-header {
+  padding-left: 0.25rem; /* Minimal padding when sidebar closed */
+}
+
+/* Header when sidebar is open - normal padding */
+.content.open .content-header {
+  padding-left: 1rem; /* Normal padding when sidebar open */
+}
+
+/* Sidebar Toggle Button (fa-bars) */
+.sidebar-toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-right: auto;
+}
+
+/* fa-bars when sidebar closed - at very left edge */
+.content:not(.open) .sidebar-toggle-btn {
+  margin-left: 0; /* No margin - at very left edge */
+  border-radius: 0 4px 4px 0; /* Round only right side */
+}
+
+/* fa-bars when sidebar open - normal position */
+.content.open .sidebar-toggle-btn {
+  margin-left: 0;
+  border-radius: 4px; /* Fully rounded */
+}
+
+.sidebar-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Theme and User Controls */
+.theme-toggle-placeholder {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle {
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.5rem !important;
+}
+
+/* Container Fluid - Full width content */
+.container-fluid {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .content,
+  .content.open {
+    left: 0 !important;
+    width: 100vw !important;
+  }
+  
+  .content-header {
+    padding: 0 0.5rem;
+  }
+}

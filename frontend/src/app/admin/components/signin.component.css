@@ -1,0 +1,5 @@
+/* Import admin common styles */
+@import '../styles/admin-common.css';
+
+/* Component-specific styles (if needed) */
+/* Add any signin-specific customizations here */

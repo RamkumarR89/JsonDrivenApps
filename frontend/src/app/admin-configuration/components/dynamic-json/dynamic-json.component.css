@@ -1,0 +1,29 @@
+/* Dynamic JSON Component Styles */
+:host {
+  display: block;
+  padding: 1rem;
+}
+
+.form-builder {
+  min-height: 400px;
+  border: 2px dashed #ccc;
+  padding: 1rem;
+}
+
+.field-controls {
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.field-settings {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}

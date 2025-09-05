@@ -1,0 +1,78 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AdminapiService } from '../../../admin/services/adminapi.service';
+import { AdminConfigurationSidebarComponent } from '../sidebar/admin-configuration-sidebar.component';
+import { User } from '../../../shared/models/user';
+
+@Component({
+  selector: 'app-admin-configuration-layout',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    AdminConfigurationSidebarComponent
+  ],
+  templateUrl: './admin-configuration-layout.component.html',
+  styleUrls: ['./admin-configuration-layout.component.css']
+})
+export class AdminConfigurationLayoutComponent implements OnInit, OnDestroy {
+  isSidebarOpen = false; // Start with sidebar HIDDEN by default (like reference)
+  isDropdownOpen = false;
+  userData: User = {} as User;
+  private sidebarSubscription: Subscription = new Subscription();
+  private userDataSubscription: Subscription = new Subscription();
+
+  constructor(
+    private readonly adminapiService: AdminapiService,
+    private readonly router: Router
+  ) {}
+
+  toggleSidebar() {
+    console.log('Toggle sidebar clicked - current state:', this.isSidebarOpen);
+    this.adminapiService.toggleSidebar();
+    console.log('Toggle called');
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+    console.log('Dropdown toggled:', this.isDropdownOpen);
+  }
+
+  closeDropdown() {
+    this.isDropdownOpen = false;
+  }
+
+  logout() {
+    console.log('Logout clicked');
+    // Clear user data
+    this.adminapiService.setLoginData({} as User);
+    
+    // Clear local storage if any
+    localStorage.removeItem('userData');
+    localStorage.removeItem('authToken');
+    
+    // Navigate to login page
+    this.router.navigate(['/admin/signin']);
+  }
+
+  ngOnInit() {
+    console.log('Layout component initialized with isSidebarOpen:', this.isSidebarOpen);
+    
+    this.sidebarSubscription = this.adminapiService.isSidebarOpen$.subscribe((isOpen) => {
+      this.isSidebarOpen = isOpen;
+      console.log('Layout received sidebar state:', isOpen);
+      console.log('Content will have class open:', isOpen);
+    });
+
+    this.userDataSubscription = this.adminapiService.userData$.subscribe((data) => {
+      this.userData = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.sidebarSubscription.unsubscribe();
+    this.userDataSubscription.unsubscribe();
+  }
+}
