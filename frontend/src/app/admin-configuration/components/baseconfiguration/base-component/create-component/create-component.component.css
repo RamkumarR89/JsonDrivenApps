@@ -77,6 +77,11 @@
   margin-bottom: 2rem;
 }
 
+/* Full width form group for JSON textarea */
+.form-group.full-width {
+  grid-column: 1 / -1; /* Span both columns */
+}
+
 /* Better spacing for larger screens */
 @media (min-width: 1200px) {
   .form-grid {

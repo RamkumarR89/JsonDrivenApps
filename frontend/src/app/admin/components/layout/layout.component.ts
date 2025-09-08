@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-layout',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './layout.component.html'
+  templateUrl: '../layout/layout.component.html'
 })
 export class LayoutComponent {
   isSidebarOpen = false;

@@ -54,7 +54,7 @@
                     <div class="col-md-4">
                       <label for="ctrlname" class="form-label">Control Name (Unique):</label>
                       <input id="ctrlname" class="form-control" formControlName="ctrlname">
-                    </div>Control Size:
+                    </div>
                     <div class="col-md-4">
                       <label for="ctrltype" class="form-label">Control Type:</label>
                       <input id="ctrltype" class="form-control" formControlName="ctrltype">
@@ -104,20 +104,41 @@
                       <input id="placeholder" class="form-control" formControlName="placeholder">
                     </div>
                     <div class="col-md-4">
-                      <label for="isrequired" class="form-label">Is Required:</label>
-                      <input id="isrequired" type="checkbox" class="form-check-input" formControlName="isrequired">
+                      <label class="form-label">Is Required:</label>
+                      <div class="form-check form-switch mt-2">
+                        <input id="isrequired" type="checkbox" class="form-check-input" formControlName="isrequired">
+                        <label class="form-check-label" for="isrequired">
+                          <span [class.text-success]="ctrlPropertiesForm.get('isrequired')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isrequired')?.value">
+                            {{ ctrlPropertiesForm.get('isrequired')?.value ? 'Required' : 'Optional' }}
+                          </span>
+                        </label>
+                      </div>
                     </div>
                     <div class="col-md-4">
                       <label for="defaultvalue" class="form-label">Default Value:</label>
                       <input id="defaultvalue" class="form-control" formControlName="defaultvalue">
                     </div>
                     <div class="col-md-4">
-                      <label for="isvisible" class="form-label">Is Visible:</label>
-                      <input id="isvisible" type="checkbox" class="form-check-input" formControlName="isvisible">
+                      <label class="form-label">Is Visible:</label>
+                      <div class="form-check form-switch mt-2">
+                        <input id="isvisible" type="checkbox" class="form-check-input" formControlName="isvisible">
+                        <label class="form-check-label" for="isvisible">
+                          <span [class.text-success]="ctrlPropertiesForm.get('isvisible')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isvisible')?.value">
+                            {{ ctrlPropertiesForm.get('isvisible')?.value ? 'Visible' : 'Hidden' }}
+                          </span>
+                        </label>
+                      </div>
                     </div>
                     <div class="col-md-4">
-                      <label for="isdisable" class="form-label">Is Disable:</label>
-                      <input id="isdisable" type="checkbox" class="form-check-input" formControlName="isdisable">
+                      <label class="form-label">Is Disable:</label>
+                      <div class="form-check form-switch mt-2">
+                        <input id="isdisable" type="checkbox" class="form-check-input" formControlName="isdisable">
+                        <label class="form-check-label" for="isdisable">
+                          <span [class.text-success]="ctrlPropertiesForm.get('isdisable')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isdisable')?.value">
+                            {{ ctrlPropertiesForm.get('isdisable')?.value ? 'Disabled' : 'Enabled' }}
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -156,12 +177,26 @@
                       <input id="maxnumber" class="form-control" formControlName="maxnumber">
                     </div>
                     <div class="col-md-4">
-                      <label for="isunique" class="form-label">Is Unique:</label>
-                      <input id="isunique" type="checkbox" class="form-check-input" formControlName="isunique">
+                      <label class="form-label">Is Unique:</label>
+                      <div class="form-check form-switch mt-2">
+                        <input id="isunique" type="checkbox" class="form-check-input" formControlName="isunique">
+                        <label class="form-check-label" for="isunique">
+                          <span [class.text-success]="ctrlPropertiesForm.get('isunique')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isunique')?.value">
+                            {{ ctrlPropertiesForm.get('isunique')?.value ? 'Unique' : 'Not Unique' }}
+                          </span>
+                        </label>
+                      </div>
                     </div>
                     <div class="col-md-4">
-                      <label for="isactive" class="form-label">Is Active:</label>
-                      <input id="isactive" type="checkbox" class="form-check-input" formControlName="isactive">
+                      <label class="form-label">Is Active:</label>
+                      <div class="form-check form-switch mt-2">
+                        <input id="isactive" type="checkbox" class="form-check-input" formControlName="isactive">
+                        <label class="form-check-label" for="isactive">
+                          <span [class.text-success]="ctrlPropertiesForm.get('isactive')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isactive')?.value">
+                            {{ ctrlPropertiesForm.get('isactive')?.value ? 'Active' : 'Inactive' }}
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>

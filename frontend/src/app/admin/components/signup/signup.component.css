@@ -1,5 +1,5 @@
 /* Import admin common styles */
-@import '../styles/admin-common.css';
+@import '../../styles/admin-common.css';
 
 /* Signup-specific styles */
 .admin-card-large {

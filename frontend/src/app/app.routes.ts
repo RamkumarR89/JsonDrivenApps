@@ -20,43 +20,35 @@ export const routes: Routes = [
       },
       {
         path: 'baseconfiguration',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/base-configuration.component').then(c => c.BaseConfigurationComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-component/base-configuration.component').then(c => c.BaseConfigurationComponent)
       },
       {
         path: 'baseconfiguration/create',
-        loadComponent: () => import('./admin-configuration/components/create-component/create-component.component').then(c => c.CreateComponentComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-component/create-component/create-component.component').then(c => c.CreateComponentComponent)
       },
       {
         path: 'baseconfiguration/edit/:id',
-        loadComponent: () => import('./admin-configuration/components/create-component/create-component.component').then(c => c.CreateComponentComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-component/create-component/create-component.component').then(c => c.CreateComponentComponent)
       },
       {
         path: 'basedefinition',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/base-definition.component').then(c => c.BaseDefinitionComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-definition/base-definition.component').then(c => c.BaseDefinitionComponent)
       },
       {
         path: 'basedefinition/edit/:id',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/base-definition.component').then(c => c.BaseDefinitionComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-definition/base-definition.component').then(c => c.BaseDefinitionComponent)
       },
       {
         path: 'addrupdatedefinition',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/add-update-definition.component').then(c => c.AddUpdateDefinitionComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-definition/add-update-definition/add-update-definition.component').then(c => c.AddUpdateDefinitionComponent)
       },
       {
         path: 'addrupdatedefinition/:id',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/add-update-definition.component').then(c => c.AddUpdateDefinitionComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-definition/add-update-definition/add-update-definition.component').then(c => c.AddUpdateDefinitionComponent)
       },
       {
         path: 'basedata/:id',
-        loadComponent: () => import('./admin-configuration/components/base-configuration/base-data.component').then(c => c.BaseDataComponent)
-      },
-      {
-        path: 'route-test',
-        loadComponent: () => import('./admin-configuration/components/route-test/route-test.component').then(c => c.RouteTestComponent)
-      },
-      {
-        path: 'debug',
-        loadComponent: () => import('./admin-configuration/components/debug/route-debug.component').then(c => c.RouteDebugComponent)
+        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-data/base-data.component').then(c => c.BaseDataComponent)
       }
     ]
   },

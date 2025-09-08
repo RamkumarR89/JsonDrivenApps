@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { BaseDefinitionService } from '../../services/base-definition.service';
+import { BaseDefinitionService } from '../../../../services/base-definition.service';
 
 @Component({
   selector: 'app-add-update-definition',
@@ -55,18 +55,18 @@ export class AddUpdateDefinitionComponent implements OnInit {
         cssstyle: [''],
         tooltips: [''],
         placeholder: [''],
-        isrequired: [''],
+        isrequired: [false],
         defaultvalue: [''],
-        isvisible: [''],
-        isdisable: [''],
+        isvisible: [true],
+        isdisable: [false],
         decimalcount: [''],
         minlength: [''],
         maxlength: [''],
         patterntype: [''],
         minnumber: [''],
         maxnumber: [''],
-        isunique: [''],
-        isactive: ['']
+        isunique: [false],
+        isactive: [true]
       }),
       ctrlSourceJson: this.fb.group({
         lookupid: [''],
@@ -92,7 +92,46 @@ export class AddUpdateDefinitionComponent implements OnInit {
     this.loading = true;
     this.baseDefinitionService.getDefinitionById(id).subscribe({
       next: (definition) => {
-        this.form.patchValue(definition);
+        // Parse JSON fields if they exist
+        const parsedDefinition = { ...definition };
+        
+        if (definition.ctrlGroupJson && typeof definition.ctrlGroupJson === 'string') {
+          try {
+            parsedDefinition.ctrlGroupJson = JSON.parse(definition.ctrlGroupJson);
+          } catch (e) {
+            console.warn('Failed to parse ctrlGroupJson:', e);
+            parsedDefinition.ctrlGroupJson = {};
+          }
+        }
+        
+        if (definition.ctrlInfoJson && typeof definition.ctrlInfoJson === 'string') {
+          try {
+            parsedDefinition.ctrlInfoJson = JSON.parse(definition.ctrlInfoJson);
+          } catch (e) {
+            console.warn('Failed to parse ctrlInfoJson:', e);
+            parsedDefinition.ctrlInfoJson = {};
+          }
+        }
+        
+        if (definition.ctrlPropertiesJson && typeof definition.ctrlPropertiesJson === 'string') {
+          try {
+            parsedDefinition.ctrlPropertiesJson = JSON.parse(definition.ctrlPropertiesJson);
+          } catch (e) {
+            console.warn('Failed to parse ctrlPropertiesJson:', e);
+            parsedDefinition.ctrlPropertiesJson = {};
+          }
+        }
+        
+        if (definition.ctrlSourceJson && typeof definition.ctrlSourceJson === 'string') {
+          try {
+            parsedDefinition.ctrlSourceJson = JSON.parse(definition.ctrlSourceJson);
+          } catch (e) {
+            console.warn('Failed to parse ctrlSourceJson:', e);
+            parsedDefinition.ctrlSourceJson = {};
+          }
+        }
+        
+        this.form.patchValue(parsedDefinition);
         // Set componentId from loaded definition if not present in query params
         if (definition && definition.componentId) {
           this.componentId = definition.componentId;

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ColDef, GridApi, GridReadyEvent, ICellRendererParams } from 'ag-grid-community';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { BaseDefinitionService } from '../../services/base-definition.service';
-import { BaseDefinition } from '../../models/base-definition.model';
+import { BaseDefinitionService } from '../../../services/base-definition.service';
+import { BaseDefinition } from '../../../models/base-definition.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -39,7 +39,18 @@ export class BaseDefinitionComponent implements OnInit {
       field: 'ctrlGroupJson',
       sortable: true,
       cellRenderer: (params: ICellRendererParams) => {
-        return params.value ? `<pre>${JSON.stringify(params.value, null, 2)}</pre>` : '';
+        if (!params.value) return '';
+        try {
+          // If it's already an object, stringify it
+          if (typeof params.value === 'object') {
+            return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(params.value, null, 2)}</pre>`;
+          }
+          // If it's a string, try to parse and format it
+          const parsed = JSON.parse(params.value);
+          return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(parsed, null, 2)}</pre>`;
+        } catch (e) {
+          return `<span style="color: #dc3545;">Invalid JSON</span>`;
+        }
       }
     },
     {
@@ -47,7 +58,18 @@ export class BaseDefinitionComponent implements OnInit {
       field: 'ctrlInfoJson',
       sortable: true,
       cellRenderer: (params: ICellRendererParams) => {
-        return params.value ? `<pre>${JSON.stringify(params.value, null, 2)}</pre>` : '';
+        if (!params.value) return '';
+        try {
+          // If it's already an object, stringify it
+          if (typeof params.value === 'object') {
+            return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(params.value, null, 2)}</pre>`;
+          }
+          // If it's a string, try to parse and format it
+          const parsed = JSON.parse(params.value);
+          return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(parsed, null, 2)}</pre>`;
+        } catch (e) {
+          return `<span style="color: #dc3545;">Invalid JSON</span>`;
+        }
       }
     },
     {
@@ -55,7 +77,18 @@ export class BaseDefinitionComponent implements OnInit {
       field: 'ctrlPropertiesJson',
       sortable: true,
       cellRenderer: (params: ICellRendererParams) => {
-        return params.value ? `<pre>${JSON.stringify(params.value, null, 2)}</pre>` : '';
+        if (!params.value) return '';
+        try {
+          // If it's already an object, stringify it
+          if (typeof params.value === 'object') {
+            return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(params.value, null, 2)}</pre>`;
+          }
+          // If it's a string, try to parse and format it
+          const parsed = JSON.parse(params.value);
+          return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(parsed, null, 2)}</pre>`;
+        } catch (e) {
+          return `<span style="color: #dc3545;">Invalid JSON</span>`;
+        }
       }
     },
     {
@@ -63,20 +96,37 @@ export class BaseDefinitionComponent implements OnInit {
       field: 'ctrlSourceJson',
       sortable: true,
       cellRenderer: (params: ICellRendererParams) => {
-        return params.value ? `<pre>${JSON.stringify(params.value, null, 2)}</pre>` : '';
+        if (!params.value) return '';
+        try {
+          // If it's already an object, stringify it
+          if (typeof params.value === 'object') {
+            return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(params.value, null, 2)}</pre>`;
+          }
+          // If it's a string, try to parse and format it
+          const parsed = JSON.parse(params.value);
+          return `<pre style="margin: 0; font-size: 12px; max-height: 100px; overflow-y: auto;">${JSON.stringify(parsed, null, 2)}</pre>`;
+        } catch (e) {
+          return `<span style="color: #dc3545;">Invalid JSON</span>`;
+        }
       }
     },
     {
       headerName: 'IsActive',
       field: 'isActive',
       sortable: true,
-      minWidth: 175,
+      minWidth: 120,
       cellRenderer: (params: { value: boolean; }) => {
-        const imageUrl = params.value
-          ? 'assets/images/active-icon.png'  // Replace with actual image URLs
-          : 'assets/images/inactive-icon.png';
-
-        return `<img src="${imageUrl}" alt="${params.value ? 'Active' : 'Inactive'}" width="80px" height="30px">`;
+        const isActive = params.value;
+        const statusClass = isActive ? 'text-success' : 'text-muted';
+        const statusText = isActive ? 'Active' : 'Inactive';
+        const iconClass = isActive ? 'fa-check-circle' : 'fa-times-circle';
+        
+        return `
+          <div class="d-flex align-items-center">
+            <i class="fas ${iconClass} ${statusClass} me-2"></i>
+            <span class="${statusClass} fw-medium">${statusText}</span>
+          </div>
+        `;
       }
     },
     {

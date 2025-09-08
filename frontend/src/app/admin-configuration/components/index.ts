@@ -1,6 +1,6 @@
 // Working Feature Components
-export * from './base-configuration';
-export * from './create-component';
+export * from './baseconfiguration/base-component';
+export * from './baseconfiguration/base-component/create-component';
 export * from './dynamic-json';
 
 // Simple Layout Component

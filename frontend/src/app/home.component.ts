@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router';
                     <h5 class="card-title">Admin Panel</h5>
                     <p class="card-text">Access user management and authentication</p>
                     <a [routerLink]="['/admin/signin']" class="btn btn-primary">
-                      <i class="fa fa-sign-in-alt me-2"></i>Admin Login
+                      <i class="fa fa-sign-in-alt me-2"></i>
+                      &nbsp; Admin Login
                     </a>
                   </div>
                 </div>
@@ -37,7 +38,8 @@ import { RouterModule } from '@angular/router';
                     <h5 class="card-title">Configuration</h5>
                     <p class="card-text">Manage system configuration and settings</p>
                     <a [routerLink]="['/adminconfiguration']" class="btn btn-success">
-                      <i class="fa fa-cog me-2"></i>Configuration
+                      <i class="fa fa-cog me-2"></i>
+                      &nbsp; Configuration
                     </a>
                   </div>
                 </div>

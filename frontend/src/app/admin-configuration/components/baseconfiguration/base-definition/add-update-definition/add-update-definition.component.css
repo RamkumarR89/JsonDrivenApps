@@ -4,6 +4,26 @@
 	max-width: 1200px;
 	padding: 32px 0;
 }
+
+/* Form Switch Styling */
+.form-check-input:checked {
+	background-color: #28a745;
+	border-color: #28a745;
+}
+
+.form-check-input:focus {
+	border-color: #86b7fe;
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.text-success {
+	color: #28a745 !important;
+}
+
+.text-muted {
+	color: #6c757d !important;
+}
 .modern-edit-header {
 	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	color: #fff;

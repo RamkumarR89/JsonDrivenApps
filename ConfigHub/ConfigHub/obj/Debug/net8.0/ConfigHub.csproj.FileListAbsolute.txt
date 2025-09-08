@@ -614,3 +614,4 @@ D:\RAM_LEARN\iqvia\ConfigHub\ConfigHub\bin\Debug\net8.0\ConfigHub.pdb
 D:\RAM_LEARN\iqvia\ConfigHub\ConfigHub\obj\Debug\net8.0\ConfigHub.csproj.Up2Date
 D:\RAM_LEARN\iqvia\ConfigHub\ConfigHub\obj\Debug\net8.0\ConfigHub.genruntimeconfig.cache
 D:\RAM_LEARN\iqvia\ConfigHub\ConfigHub\obj\Debug\net8.0\ref\ConfigHub.dll
+D:\RAM_LEARN\iqvia\ConfigHub\ConfigHub\obj\Debug\net8.0\ConfigHub.sourcelink.json

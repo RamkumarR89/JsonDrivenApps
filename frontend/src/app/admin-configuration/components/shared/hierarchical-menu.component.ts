@@ -92,11 +92,14 @@ import { HierarchicalMenuItem } from '../../services/hierarchical-menu.service';
     
     .tree-item-content.has-children {
       font-weight: 600;
+      cursor: pointer;
     }
     
     .tree-item-content.has-children:hover {
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
       color: #0369a1;
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     
     .expand-icon {
@@ -228,8 +231,12 @@ export class HierarchicalMenuComponent {
       this.clickingItems.delete(itemKey);
     }, 300);
 
-    // Only emit if it's a leaf node (no children) or if it's a master item
-    if (!item.children || item.children.length === 0 || item.isMaster) {
+    // If item has children, toggle expand/collapse
+    if (item.children && item.children.length > 0) {
+      item.isExpanded = !item.isExpanded;
+    }
+    // If it's a leaf node (no children) or if it's a master item, emit the click
+    else if (!item.children || item.children.length === 0 || item.isMaster) {
       this.menuItemClick.emit(item);
     }
   }

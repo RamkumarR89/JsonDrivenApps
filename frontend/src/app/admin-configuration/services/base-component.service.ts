@@ -9,6 +9,7 @@ export interface BaseComponent {
   parentComponent: string;
   displayName: string;
   isActive: boolean; // Changed from 'active' to 'isActive' to match backend
+  componentJson?: string; // JSON configuration for the component
 }
 
 export interface CreateBaseComponentRequest {
@@ -16,6 +17,7 @@ export interface CreateBaseComponentRequest {
   parentComponent?: string;
   displayName: string;
   isActive: boolean; // Changed from 'active' to 'isActive' to match backend
+  componentJson?: string; // JSON configuration for the component
 }
 
 @Injectable({

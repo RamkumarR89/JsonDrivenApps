@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseComponentService, BaseComponent, CreateBaseComponentRequest } from '../../services/base-component.service';
+import { BaseComponentService, BaseComponent, CreateBaseComponentRequest } from '../../../../services/base-component.service';
 
 @Component({
   selector: 'app-create-component',
@@ -22,7 +22,8 @@ export class CreateComponentComponent implements OnInit {
     componentName: '',
     parentComponent: '',
     displayName: '',
-    isActive: true
+    isActive: true,
+    componentJson: ''
   };
 
   constructor(
@@ -43,7 +44,7 @@ export class CreateComponentComponent implements OnInit {
   loadComponent(id: number) {
     this.loading = true;
     this.baseComponentService.getBaseComponent(id).subscribe({
-      next: (component) => {
+      next: (component: BaseComponent) => {
         console.log('Loaded component for editing:', component);
         this.editingComponent = component;
         
@@ -52,13 +53,14 @@ export class CreateComponentComponent implements OnInit {
           componentName: component.componentName,
           parentComponent: component.parentComponent || '',
           displayName: component.displayName,
-          isActive: component.isActive === true // Explicitly ensure boolean value
+          isActive: component.isActive === true, // Explicitly ensure boolean value
+          componentJson: component.componentJson || ''
         };
         
         console.log('Component form data set:', this.newComponent);
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Error loading component:', error);
         this.error = 'Failed to load component for editing.';
         this.loading = false;
@@ -104,7 +106,7 @@ export class CreateComponentComponent implements OnInit {
       console.log('Update URL:', `http://localhost:5135/api/Basecomponent/${this.editingComponent.id}`);
       
       this.baseComponentService.updateBaseComponent(this.editingComponent.id, updateData).subscribe({
-        next: (updatedComponent) => {
+        next: (updatedComponent: BaseComponent) => {
           console.log('Component updated successfully:', updatedComponent);
           this.success = 'Component updated successfully!';
           this.loading = false;
@@ -118,7 +120,7 @@ export class CreateComponentComponent implements OnInit {
             this.router.navigate(['/adminconfiguration/baseconfiguration']);
           }, 1500);
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error('Update error:', error);
           console.error('Error details:', error.error);
           this.error = `Failed to update component: ${error.message || 'Unknown error'}`;
@@ -128,7 +130,7 @@ export class CreateComponentComponent implements OnInit {
     } else {
       // Create new component
       this.baseComponentService.createBaseComponent(componentData).subscribe({
-        next: (newComponent) => {
+        next: (newComponent: BaseComponent) => {
           console.log('Component created successfully:', newComponent);
           this.success = 'Component created successfully!';
           this.loading = false;
@@ -142,7 +144,7 @@ export class CreateComponentComponent implements OnInit {
             this.router.navigate(['/adminconfiguration/baseconfiguration']);
           }, 1500);
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error('Create error:', error);
           this.error = `Failed to create component: ${error.message}`;
           this.loading = false;
@@ -180,11 +182,49 @@ export class CreateComponentComponent implements OnInit {
         componentName: '',
         parentComponent: '',
         displayName: '',
-        isActive: true
+        isActive: true,
+        componentJson: ''
       };
     }
     this.error = null;
     this.success = null;
     console.log('Form reset, active status:', this.newComponent.isActive);
+  }
+
+  // JSON Viewer method
+  onJsonViewer(): void {
+    if (this.newComponent.componentJson) {
+      try {
+        // Try to parse and format the JSON
+        const parsedJson = JSON.parse(this.newComponent.componentJson);
+        const formattedJson = JSON.stringify(parsedJson, null, 2);
+        
+        // Open in a new window or show in a modal
+        const newWindow = window.open('', '_blank', 'width=800,height=600');
+        if (newWindow) {
+          newWindow.document.write(`
+            <html>
+              <head>
+                <title>Component JSON Configuration</title>
+                <style>
+                  body { font-family: monospace; padding: 20px; background: #f8f9fa; }
+                  pre { background: white; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; }
+                  h2 { color: #495057; }
+                </style>
+              </head>
+              <body>
+                <h2>Component JSON Configuration</h2>
+                <pre>${formattedJson}</pre>
+              </body>
+            </html>
+          `);
+          newWindow.document.close();
+        }
+      } catch (error) {
+        alert('Invalid JSON format. Please check your JSON syntax.');
+      }
+    } else {
+      alert('No JSON configuration to view.');
+    }
   }
 }

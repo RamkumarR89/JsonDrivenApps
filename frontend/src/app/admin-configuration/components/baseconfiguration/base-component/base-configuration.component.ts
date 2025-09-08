@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
-import { BaseComponentService, BaseComponent } from '../../services/base-component.service';
-import { BaseDefinitionService } from '../../services/base-definition.service';
+import { BaseComponentService, BaseComponent } from '../../../services/base-component.service';
+import { BaseDefinitionService } from '../../../services/base-definition.service';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 

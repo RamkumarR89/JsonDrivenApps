@@ -26,3 +26,4 @@ D:\RAM_LEARN\iqvia\ConfigHub\EFCore\obj\Debug\net8.0\refint\EFCore.dll
 D:\RAM_LEARN\iqvia\ConfigHub\EFCore\obj\Debug\net8.0\EFCore.pdb
 D:\RAM_LEARN\iqvia\ConfigHub\EFCore\obj\Debug\net8.0\EFCore.genruntimeconfig.cache
 D:\RAM_LEARN\iqvia\ConfigHub\EFCore\obj\Debug\net8.0\ref\EFCore.dll
+D:\RAM_LEARN\iqvia\ConfigHub\EFCore\obj\Debug\net8.0\EFCore.sourcelink.json

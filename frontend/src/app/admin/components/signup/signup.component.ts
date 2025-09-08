@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { UserapiService } from '../services/userapi.service';
-import { User } from '../../shared/models/user';
+import { UserapiService } from '../../services/userapi.service';
+import { User } from '../../../shared/models/user';
 
 @Component({
   selector: 'app-signup',

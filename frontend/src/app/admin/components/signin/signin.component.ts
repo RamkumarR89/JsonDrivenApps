@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { UserapiService } from '../services/userapi.service';
-import { AdminapiService } from '../services/adminapi.service';
+import { UserapiService } from '../../services/userapi.service';
+import { AdminapiService } from '../../services/adminapi.service';
 
 @Component({
   selector: 'app-signin',

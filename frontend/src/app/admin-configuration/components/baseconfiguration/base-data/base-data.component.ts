@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { BaseDefinitionService } from '../../services/base-definition.service';
-import { BaseDataapiService } from '../../services/base-dataapi.service';
+import { BaseDefinitionService } from '../../../services/base-definition.service';
+import { BaseDataapiService } from '../../../services/base-dataapi.service';
 import { forkJoin, Subject, takeUntil, debounceTime } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
