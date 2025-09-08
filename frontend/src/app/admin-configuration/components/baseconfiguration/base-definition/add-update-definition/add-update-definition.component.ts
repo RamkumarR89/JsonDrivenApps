@@ -4,6 +4,47 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { BaseDefinitionService } from '../../../../services/base-definition.service';
 
+// Lookup item interface
+export interface LookupItemModel {
+  id: number | string;
+  name: string;
+}
+
+// Control type enums
+export enum InputFieldType {
+  Text = 'text',
+  Password = 'password',
+  Email = 'email',
+  Number = 'number',
+  Range = 'range',
+  Date = 'date',
+  Time = 'time',
+  DateTimeLocal = 'datetime-local',
+  Month = 'month',
+  Week = 'week',
+  Color = 'color',
+  File = 'file',
+  URL = 'url',
+  Tel = 'tel',
+  Search = 'search',
+  Hidden = 'hidden',
+}
+
+export enum FormControlType {
+  TextArea = 'textarea',
+  Select = 'select',
+  Checkbox = 'checkbox',
+  Radio = 'radio',
+  Button = 'button',
+  Submit = 'submit',
+  Reset = 'reset',
+  Image = 'image'
+}
+
+export enum GridControl {
+  Grid = 'grid',
+}
+
 @Component({
   selector: 'app-add-update-definition',
   standalone: true,
@@ -30,6 +71,7 @@ export class AddUpdateDefinitionComponent implements OnInit {
   componentId: number | null = null;
   loading = false;
   error: string | null = null;
+  lookupitemmodel: LookupItemModel[] = [];
 
   constructor(
     private readonly fb: FormBuilder,
@@ -77,6 +119,7 @@ export class AddUpdateDefinitionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.lookupitemmodel = this.generateLookupItems();
     this.route.params.subscribe(params => {
       this.definitionId = params['id'] ? +params['id'] : null;
     });
@@ -190,5 +233,41 @@ export class AddUpdateDefinitionComponent implements OnInit {
         }
       });
     }
+  }
+
+  private generateLookupItems(): LookupItemModel[] {
+    const items: LookupItemModel[] = [];
+
+    // Adding InputFieldType items
+    for (const key in InputFieldType) {
+      if (InputFieldType.hasOwnProperty(key)) {
+        items.push({
+          id: Object.values(InputFieldType).indexOf(InputFieldType[key as keyof typeof InputFieldType]) + 1,
+          name: InputFieldType[key as keyof typeof InputFieldType]
+        });
+      }
+    }
+
+    // Adding FormControlType items
+    for (const key in FormControlType) {
+      if (FormControlType.hasOwnProperty(key)) {
+        items.push({
+          id: Object.values(FormControlType).indexOf(FormControlType[key as keyof typeof FormControlType]) + 1 + Object.keys(InputFieldType).length,
+          name: FormControlType[key as keyof typeof FormControlType]
+        });
+      }
+    }
+
+    // Adding GridControl items
+    for (const key in GridControl) {
+      if (GridControl.hasOwnProperty(key)) {
+        items.push({
+          id: items.length + 1, // Ensuring unique ID
+          name: GridControl[key as keyof typeof GridControl]
+        });
+      }
+    }
+
+    return items;
   }
 }

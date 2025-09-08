@@ -17,6 +17,7 @@ export class CreateComponentComponent implements OnInit {
   success: string | null = null;
   editingComponent: BaseComponent | null = null;
   isEditMode = false;
+  parentComponentOptions: {id: number, name: string, displayName: string}[] = [];
   
   newComponent: Partial<BaseComponent> = {
     componentName: '',
@@ -33,12 +34,37 @@ export class CreateComponentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Load parent component options for dropdown
+    this.loadParentComponentOptions();
+    
     // Check if we're in edit mode
     const componentId = this.route.snapshot.params['id'];
     if (componentId) {
       this.isEditMode = true;
       this.loadComponent(componentId);
     }
+  }
+
+  loadParentComponentOptions() {
+    console.log('Loading parent component options...');
+    // Use the existing getBaseComponents method directly
+    this.baseComponentService.getBaseComponents().subscribe({
+      next: (components) => {
+        console.log('Loaded components for parent options:', components);
+        this.parentComponentOptions = components.map(component => ({
+          id: component.id,
+          name: component.componentName,
+          displayName: component.displayName
+        }));
+        console.log('parentComponentOptions set to:', this.parentComponentOptions);
+        console.log('Options count:', this.parentComponentOptions.length);
+      },
+      error: (error) => {
+        console.error('Error loading parent component options:', error);
+        this.error = 'Failed to load parent component options';
+        this.parentComponentOptions = [];
+      }
+    });
   }
 
   loadComponent(id: number) {
@@ -51,7 +77,7 @@ export class CreateComponentComponent implements OnInit {
         // Ensure all properties are properly set, especially the active status
         this.newComponent = {
           componentName: component.componentName,
-          parentComponent: component.parentComponent || '',
+          parentComponent: component.parentComponent ? component.parentComponent.toString() : '',
           displayName: component.displayName,
           isActive: component.isActive === true, // Explicitly ensure boolean value
           componentJson: component.componentJson || ''
@@ -87,9 +113,10 @@ export class CreateComponentComponent implements OnInit {
 
     const componentData: CreateBaseComponentRequest = {
       componentName: this.newComponent.componentName,
-      parentComponent: this.newComponent.parentComponent || '',
+      parentComponent: this.newComponent.parentComponent ? this.newComponent.parentComponent.toString() : '',
       displayName: this.newComponent.displayName,
-      isActive: this.newComponent.isActive || false
+      isActive: this.newComponent.isActive || false,
+      componentJson: this.newComponent.componentJson || ''
     };
 
     if (this.isEditMode && this.editingComponent) {
@@ -99,7 +126,8 @@ export class CreateComponentComponent implements OnInit {
         componentName: componentData.componentName,
         parentComponent: componentData.parentComponent || '',
         displayName: componentData.displayName,
-        isActive: componentData.isActive
+        isActive: componentData.isActive,
+        componentJson: componentData.componentJson || ''
       };
       
       console.log('Sending update request:', updateData);

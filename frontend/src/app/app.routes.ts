@@ -46,12 +46,16 @@ export const routes: Routes = [
         path: 'addrupdatedefinition/:id',
         loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-definition/add-update-definition/add-update-definition.component').then(c => c.AddUpdateDefinitionComponent)
       },
-      {
-        path: 'basedata/:id',
-        loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-data/base-data.component').then(c => c.BaseDataComponent)
-      }
-    ]
-  },
+                {
+                  path: 'basedata/:id',
+                  loadComponent: () => import('./admin-configuration/components/baseconfiguration/base-data/base-data.component').then(c => c.BaseDataComponent)
+                },
+                {
+                  path: 'querybuildervalidator',
+                  loadComponent: () => import('./admin-configuration/components/query-builder-validator/query-builder-validator.component').then(c => c.QueryBuilderValidatorComponent)
+                }
+              ]
+            },
   {
     path: '**',
     redirectTo: '',

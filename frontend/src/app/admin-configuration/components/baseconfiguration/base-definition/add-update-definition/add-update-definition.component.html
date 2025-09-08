@@ -57,7 +57,12 @@
                     </div>
                     <div class="col-md-4">
                       <label for="ctrltype" class="form-label">Control Type:</label>
-                      <input id="ctrltype" class="form-control" formControlName="ctrltype">
+                      <select id="ctrltype" class="form-control" formControlName="ctrltype">
+                        <option value="">Select Control Type</option>
+                        <option *ngFor="let type of lookupitemmodel" [value]="type.name">
+                          {{ type.name }}
+                        </option>
+                      </select>
                     </div>
                     <div class="col-md-4">
                       <label for="displayname" class="form-label">Control Display Name:</label>

@@ -1,7 +1,7 @@
   import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 export interface BaseComponent {
   id: number;
@@ -30,6 +30,8 @@ export class BaseComponentService {
   private cachedComponents: BaseComponent[] = [];
   private lastFetchTime = 0;
   private cacheTimeout = 30000; // 30 seconds cache
+  private componentDataSubject = new BehaviorSubject<number | null>(null);
+  public componentData$ = this.componentDataSubject.asObservable();
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -134,6 +136,31 @@ export class BaseComponentService {
     this.cachedComponents = [];
     this.lastFetchTime = 0;
     console.log('Cache cleared - next fetch will be fresh from API');
+  }
+
+  // Set component data for navigation
+  setComponentData(componentId: number): void {
+    this.componentDataSubject.next(componentId);
+  }
+
+  // Get current component data
+  getCurrentComponentData(): number | null {
+    return this.componentDataSubject.value;
+  }
+
+  // Get parent component options for dropdown
+  getParentComponentOptions(): Observable<{id: number, name: string, displayName: string}[]> {
+    return this.http.get<BaseComponent[]>(`${this.baseUrl}/Basecomponent`, this.httpOptions)
+      .pipe(
+        map((components: BaseComponent[]) => {
+          return components.map(component => ({
+            id: component.id,
+            name: component.componentName,
+            displayName: component.displayName
+          }));
+        }),
+        catchError(this.handleError<{id: number, name: string, displayName: string}[]>('getParentComponentOptions', []))
+      );
   }
 
   // Error handling

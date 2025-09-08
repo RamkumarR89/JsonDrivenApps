@@ -5,6 +5,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { BaseComponentService, BaseComponent } from '../../../services/base-component.service';
 import { BaseDefinitionService } from '../../../services/base-definition.service';
+import { CellRendererComponent } from '../../shared/cell-renderer.component';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -68,15 +69,11 @@ export class BaseConfigurationComponent implements OnInit, OnDestroy {
     },
     {
       headerName: 'Actions',
-      width: 260,
-      cellRenderer: (params: any) => {
-        const component = params.data;
-        return `
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="window.editComponent(${component.id})">Edit</button>
-          <button class="btn btn-sm btn-outline-danger me-1" onclick="window.deleteComponent(${component.id})">Delete</button>
-          <button class="btn btn-sm btn-outline-success" onclick="window.addDefinition(${component.id})">Add Definition</button>
-        `;
-      }
+      width: 380,
+      cellRenderer: 'cellRenderer',
+      cellRendererParams: {},
+      sortable: false,
+      filter: false
     }
   ];
 
@@ -98,6 +95,9 @@ export class BaseConfigurationComponent implements OnInit, OnDestroy {
     suppressNoRowsOverlay: false,
     rowBuffer: 10, // Optimize row rendering
     rowSelection: 'single' as const, // Enable row selection for better UX
+    components: {
+      cellRenderer: CellRendererComponent
+    },
     defaultColDef: {
       resizable: true,
       sortable: true,
@@ -113,12 +113,7 @@ export class BaseConfigurationComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly injector: Injector,
     private readonly baseDefinitionService: BaseDefinitionService
-  ) {
-    // Make methods available globally for AG Grid action buttons
-    (window as any).editComponent = (id: number) => this.editComponent(id);
-    (window as any).deleteComponent = (id: number) => this.deleteComponent(id);
-      (window as any).addDefinition = (id: number) => this.addDefinition(id);
-  }
+  ) {}
 
     addDefinition(componentId: number) {
       console.log('addDefinition called with component ID:', componentId);

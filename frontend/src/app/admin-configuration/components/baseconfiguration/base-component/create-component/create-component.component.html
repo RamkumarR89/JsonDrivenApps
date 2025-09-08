@@ -60,15 +60,20 @@
           
           <div class="form-group">
             <label for="parentComponent" class="form-label">Parent Component</label>
-            <input 
-              type="text" 
+            <select 
               class="form-control" 
               id="parentComponent" 
               [(ngModel)]="newComponent.parentComponent"
               name="parentComponent"
-              placeholder="Enter parent component (optional)"
               [disabled]="loading">
-            <small class="form-text text-muted">Optional: Specify a parent component</small>
+              <option value="">Select a parent component (optional)</option>
+              <option 
+                *ngFor="let option of parentComponentOptions" 
+                [value]="option.id">
+                {{ option.displayName }} ({{ option.name }})
+              </option>
+            </select>
+            <small class="form-text text-muted">Optional: Select a parent component from existing components</small>
           </div>
           
           <div class="form-group">
