@@ -20,211 +20,224 @@
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
     <div *ngIf="loading" class="alert alert-info">Loading...</div>
 
-    <!-- Control Group Card -->
-    <div class="content-card">
-      <div class="card-header-themed">
-        <i class="fas fa-layer-group me-2"></i>
-        <span>Control Group</span>
+    <!-- Custom Tab Group -->
+    <div class="custom-tab-group">
+      <div class="custom-tab-header">
+        <div class="custom-tab" [class.active]="activeTab === 0" (click)="activeTab = 0">Control Group</div>
+        <div class="custom-tab" [class.active]="activeTab === 1" (click)="activeTab = 1">Control Information</div>
+        <div class="custom-tab" [class.active]="activeTab === 2" (click)="activeTab = 2">Control Properties</div>
+        <div class="custom-tab" [class.active]="activeTab === 3" (click)="activeTab = 3">Validation</div>
+        <div class="custom-tab" [class.active]="activeTab === 4" (click)="activeTab = 4">Control Source</div>
       </div>
-      <div class="card-body-themed">
-        <div [formGroup]="ctrlGroupForm" class="form-grid">
-          <div class="form-group">
-            <label for="ctrlgroupname" class="form-label">Group Name (Unique):</label>
-            <input id="ctrlgroupname" class="form-control" formControlName="ctrlgroupname">
-          </div>
-          <div class="form-group">
-            <label for="groupsequence" class="form-label">Group Sequence:</label>
-            <input id="groupsequence" class="form-control" formControlName="groupsequence">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Control Information Card -->
-    <div class="content-card">
-      <div class="card-header-themed">
-        <i class="fas fa-info-circle me-2"></i>
-        <span>Control Information</span>
-      </div>
-      <div class="card-body-themed">
-        <div [formGroup]="ctrlInfoForm" class="form-grid">
-          <div class="form-group">
-            <label for="ctrlname" class="form-label">Control Name (Unique):</label>
-            <input id="ctrlname" class="form-control" formControlName="ctrlname">
-          </div>
-          <div class="form-group">
-            <label for="ctrltype" class="form-label">Control Type:</label>
-            <select id="ctrltype" class="form-control" formControlName="ctrltype">
-              <option value="">Select Control Type</option>
-              <option *ngFor="let type of lookupitemmodel" [value]="type.name">
-                {{ type.name }}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="displayname" class="form-label">Control Display Name:</label>
-            <input id="displayname" class="form-control" formControlName="displayname">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Control Properties Card -->
-    <div class="content-card">
-      <div class="card-header-themed">
-        <i class="fas fa-sliders-h me-2"></i>
-        <span>Control Properties</span>
-      </div>
-      <div class="card-body-themed">
-        <div [formGroup]="ctrlPropertiesForm" class="form-grid">
-          <div class="form-group">
-            <label for="ctrlsize" class="form-label">Control Size:</label>
-            <input id="ctrlsize" class="form-control" formControlName="ctrlsize">
-          </div>
-          <div class="form-group">
-            <label for="ctrlwidth" class="form-label">Control Width:</label>
-            <input id="ctrlwidth" class="form-control" formControlName="ctrlwidth">
-          </div>
-          <div class="form-group">
-            <label for="ctrlheight" class="form-label">Control Height:</label>
-            <input id="ctrlheight" class="form-control" formControlName="ctrlheight">
-          </div>
-          <div class="form-group">
-            <label for="classname" class="form-label">ClassName:</label>
-            <input id="classname" class="form-control" formControlName="classname">
-          </div>
-          <div class="form-group">
-            <label for="cssstyle" class="form-label">CSS-Style:</label>
-            <input id="cssstyle" class="form-control" formControlName="cssstyle">
-          </div>
-          <div class="form-group">
-            <label for="tooltips" class="form-label">Tooltips:</label>
-            <input id="tooltips" class="form-control" formControlName="tooltips">
-          </div>
-          <div class="form-group">
-            <label for="placeholder" class="form-label">Placeholder:</label>
-            <input id="placeholder" class="form-control" formControlName="placeholder">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Is Required:</label>
-            <div class="form-check">
-              <input id="isrequired" type="checkbox" class="form-check-input" formControlName="isrequired">
-              <label class="form-check-label" for="isrequired">
-                <span [class.text-success]="ctrlPropertiesForm.get('isrequired')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isrequired')?.value">
-                  {{ ctrlPropertiesForm.get('isrequired')?.value ? 'Required' : 'Optional' }}
-                </span>
-              </label>
+      <div class="custom-tab-content">
+        <ng-container *ngIf="activeTab === 0">
+          <div class="content-card">
+            <div class="card-header-themed">
+              <i class="fas fa-layer-group me-2"></i>
+              <span>Control Group</span>
+            </div>
+            <div class="card-body-themed">
+              <div [formGroup]="ctrlGroupForm" class="form-grid">
+                <div class="form-group">
+                  <label for="ctrlgroupname" class="form-label">Group Name (Unique):</label>
+                  <input id="ctrlgroupname" class="form-control" formControlName="ctrlgroupname">
+                </div>
+                <div class="form-group">
+                  <label for="groupsequence" class="form-label">Group Sequence:</label>
+                  <input id="groupsequence" class="form-control" formControlName="groupsequence">
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="defaultvalue" class="form-label">Default Value:</label>
-            <input id="defaultvalue" class="form-control" formControlName="defaultvalue">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Is Visible:</label>
-            <div class="form-check">
-              <input id="isvisible" type="checkbox" class="form-check-input" formControlName="isvisible">
-              <label class="form-check-label" for="isvisible">
-                <span [class.text-success]="ctrlPropertiesForm.get('isvisible')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isvisible')?.value">
-                  {{ ctrlPropertiesForm.get('isvisible')?.value ? 'Visible' : 'Hidden' }}
-                </span>
-              </label>
+        </ng-container>
+        <ng-container *ngIf="activeTab === 1">
+          <div class="content-card">
+            <div class="card-header-themed">
+              <i class="fas fa-info-circle me-2"></i>
+              <span>Control Information</span>
+            </div>
+            <div class="card-body-themed">
+              <div [formGroup]="ctrlInfoForm" class="form-grid">
+                <div class="form-group">
+                  <label for="ctrlname" class="form-label">Control Name (Unique):</label>
+                  <input id="ctrlname" class="form-control" formControlName="ctrlname">
+                </div>
+                <div class="form-group">
+                  <label for="ctrltype" class="form-label">Control Type:</label>
+                  <select id="ctrltype" class="form-control" formControlName="ctrltype">
+                    <option value="">Select Control Type</option>
+                    <option *ngFor="let type of lookupitemmodel" [value]="type.name">
+                      {{ type.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="displayname" class="form-label">Control Display Name:</label>
+                  <input id="displayname" class="form-control" formControlName="displayname">
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Is Disable:</label>
-            <div class="form-check">
-              <input id="isdisable" type="checkbox" class="form-check-input" formControlName="isdisable">
-              <label class="form-check-label" for="isdisable">
-                <span [class.text-success]="ctrlPropertiesForm.get('isdisable')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isdisable')?.value">
-                  {{ ctrlPropertiesForm.get('isdisable')?.value ? 'Disabled' : 'Enabled' }}
-                </span>
-              </label>
+        </ng-container>
+        <ng-container *ngIf="activeTab === 2">
+          <div class="content-card">
+            <div class="card-header-themed">
+              <i class="fas fa-sliders-h me-2"></i>
+              <span>Control Properties</span>
+            </div>
+            <div class="card-body-themed">
+              <div [formGroup]="ctrlPropertiesForm" class="form-grid form-grid-3">
+                <div class="form-group">
+                  <label for="ctrlsize" class="form-label">Control Size:</label>
+                  <input id="ctrlsize" class="form-control" formControlName="ctrlsize">
+                </div>
+                <div class="form-group">
+                  <label for="ctrlwidth" class="form-label">Control Width:</label>
+                  <input id="ctrlwidth" class="form-control" formControlName="ctrlwidth">
+                </div>
+                <div class="form-group">
+                  <label for="ctrlheight" class="form-label">Control Height:</label>
+                  <input id="ctrlheight" class="form-control" formControlName="ctrlheight">
+                </div>
+                <div class="form-group">
+                  <label for="classname" class="form-label">ClassName:</label>
+                  <input id="classname" class="form-control" formControlName="classname">
+                </div>
+                <div class="form-group">
+                  <label for="cssstyle" class="form-label">CSS-Style:</label>
+                  <input id="cssstyle" class="form-control" formControlName="cssstyle">
+                </div>
+                <div class="form-group">
+                  <label for="tooltips" class="form-label">Tooltips:</label>
+                  <input id="tooltips" class="form-control" formControlName="tooltips">
+                </div>
+                <div class="form-group">
+                  <label for="placeholder" class="form-label">Placeholder:</label>
+                  <input id="placeholder" class="form-control" formControlName="placeholder">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Is Required:</label>
+                  <div class="form-check">
+                    <input id="isrequired" type="checkbox" class="form-check-input" formControlName="isrequired">
+                    <label class="form-check-label" for="isrequired">
+                      <span [class.text-success]="ctrlPropertiesForm.get('isrequired')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isrequired')?.value">
+                        {{ ctrlPropertiesForm.get('isrequired')?.value ? 'Required' : 'Optional' }}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="defaultvalue" class="form-label">Default Value:</label>
+                  <input id="defaultvalue" class="form-control" formControlName="defaultvalue">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Is Visible:</label>
+                  <div class="form-check">
+                    <input id="isvisible" type="checkbox" class="form-check-input" formControlName="isvisible">
+                    <label class="form-check-label" for="isvisible">
+                      <span [class.text-success]="ctrlPropertiesForm.get('isvisible')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isvisible')?.value">
+                        {{ ctrlPropertiesForm.get('isvisible')?.value ? 'Visible' : 'Hidden' }}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Is Disable:</label>
+                  <div class="form-check">
+                    <input id="isdisable" type="checkbox" class="form-check-input" formControlName="isdisable">
+                    <label class="form-check-label" for="isdisable">
+                      <span [class.text-success]="ctrlPropertiesForm.get('isdisable')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isdisable')?.value">
+                        {{ ctrlPropertiesForm.get('isdisable')?.value ? 'Disabled' : 'Enabled' }}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Validation Card -->
-    <div class="content-card">
-      <div class="card-header-themed">
-        <i class="fas fa-check-circle me-2"></i>
-        <span>Validation</span>
-      </div>
-      <div class="card-body-themed">
-        <div [formGroup]="ctrlPropertiesForm" class="form-grid">
-          <div class="form-group">
-            <label for="decimalcount" class="form-label">Decimal Count:</label>
-            <input id="decimalcount" class="form-control" formControlName="decimalcount">
-          </div>
-          <div class="form-group">
-            <label for="minlength" class="form-label">Min Length:</label>
-            <input id="minlength" class="form-control" formControlName="minlength">
-          </div>
-          <div class="form-group">
-            <label for="maxlength" class="form-label">Max Length:</label>
-            <input id="maxlength" class="form-control" formControlName="maxlength">
-          </div>
-          <div class="form-group">
-            <label for="patterntype" class="form-label">Pattern Type:</label>
-            <input id="patterntype" class="form-control" formControlName="patterntype">
-          </div>
-          <div class="form-group">
-            <label for="minnumber" class="form-label">Min Number:</label>
-            <input id="minnumber" class="form-control" formControlName="minnumber">
-          </div>
-          <div class="form-group">
-            <label for="maxnumber" class="form-label">Max Number:</label>
-            <input id="maxnumber" class="form-control" formControlName="maxnumber">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Is Unique:</label>
-            <div class="form-check">
-              <input id="isunique" type="checkbox" class="form-check-input" formControlName="isunique">
-              <label class="form-check-label" for="isunique">
-                <span [class.text-success]="ctrlPropertiesForm.get('isunique')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isunique')?.value">
-                  {{ ctrlPropertiesForm.get('isunique')?.value ? 'Unique' : 'Not Unique' }}
-                </span>
-              </label>
+        </ng-container>
+        <ng-container *ngIf="activeTab === 3">
+          <div class="content-card">
+            <div class="card-header-themed">
+              <i class="fas fa-check-circle me-2"></i>
+              <span>Validation</span>
+            </div>
+            <div class="card-body-themed">
+              <div [formGroup]="ctrlPropertiesForm" class="form-grid">
+                <div class="form-group">
+                  <label for="decimalcount" class="form-label">Decimal Count:</label>
+                  <input id="decimalcount" class="form-control" formControlName="decimalcount">
+                </div>
+                <div class="form-group">
+                  <label for="minlength" class="form-label">Min Length:</label>
+                  <input id="minlength" class="form-control" formControlName="minlength">
+                </div>
+                <div class="form-group">
+                  <label for="maxlength" class="form-label">Max Length:</label>
+                  <input id="maxlength" class="form-control" formControlName="maxlength">
+                </div>
+                <div class="form-group">
+                  <label for="patterntype" class="form-label">Pattern Type:</label>
+                  <input id="patterntype" class="form-control" formControlName="patterntype">
+                </div>
+                <div class="form-group">
+                  <label for="minnumber" class="form-label">Min Number:</label>
+                  <input id="minnumber" class="form-control" formControlName="minnumber">
+                </div>
+                <div class="form-group">
+                  <label for="maxnumber" class="form-label">Max Number:</label>
+                  <input id="maxnumber" class="form-control" formControlName="maxnumber">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Is Unique:</label>
+                  <div class="form-check">
+                    <input id="isunique" type="checkbox" class="form-check-input" formControlName="isunique">
+                    <label class="form-check-label" for="isunique">
+                      <span [class.text-success]="ctrlPropertiesForm.get('isunique')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isunique')?.value">
+                        {{ ctrlPropertiesForm.get('isunique')?.value ? 'Unique' : 'Not Unique' }}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Is Active:</label>
+                  <div class="form-check">
+                    <input id="isactive" type="checkbox" class="form-check-input" formControlName="isactive">
+                    <label class="form-check-label" for="isactive">
+                      <span [class.text-success]="ctrlPropertiesForm.get('isactive')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isactive')?.value">
+                        {{ ctrlPropertiesForm.get('isactive')?.value ? 'Active' : 'Inactive' }}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Is Active:</label>
-            <div class="form-check">
-              <input id="isactive" type="checkbox" class="form-check-input" formControlName="isactive">
-              <label class="form-check-label" for="isactive">
-                <span [class.text-success]="ctrlPropertiesForm.get('isactive')?.value" [class.text-muted]="!ctrlPropertiesForm.get('isactive')?.value">
-                  {{ ctrlPropertiesForm.get('isactive')?.value ? 'Active' : 'Inactive' }}
-                </span>
-              </label>
+        </ng-container>
+        <ng-container *ngIf="activeTab === 4">
+          <div class="content-card">
+            <div class="card-header-themed">
+              <i class="fas fa-database me-2"></i>
+              <span>Control Source</span>
+            </div>
+            <div class="card-body-themed">
+              <div [formGroup]="ctrlSourceForm" class="form-grid">
+                <div class="form-group">
+                  <label for="lookupid" class="form-label">Lookup ID:</label>
+                  <input id="lookupid" class="form-control" formControlName="lookupid">
+                </div>
+                <div class="form-group">
+                  <label for="lookupname" class="form-label">Lookup Name:</label>
+                  <input id="lookupname" class="form-control" formControlName="lookupname">
+                </div>
+                <div class="form-group">
+                  <label for="lookupdatasource" class="form-label">Lookup DataSource:</label>
+                  <input id="lookupdatasource" class="form-control" formControlName="lookupdatasource">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Control Source Card -->
-    <div class="content-card">
-      <div class="card-header-themed">
-        <i class="fas fa-database me-2"></i>
-        <span>Control Source</span>
-      </div>
-      <div class="card-body-themed">
-        <div [formGroup]="ctrlSourceForm" class="form-grid">
-          <div class="form-group">
-            <label for="lookupid" class="form-label">Lookup ID:</label>
-            <input id="lookupid" class="form-control" formControlName="lookupid">
-          </div>
-          <div class="form-group">
-            <label for="lookupname" class="form-label">Lookup Name:</label>
-            <input id="lookupname" class="form-control" formControlName="lookupname">
-          </div>
-          <div class="form-group">
-            <label for="lookupdatasource" class="form-label">Lookup DataSource:</label>
-            <input id="lookupdatasource" class="form-control" formControlName="lookupdatasource">
-          </div>
-        </div>
+        </ng-container>
       </div>
     </div>
 

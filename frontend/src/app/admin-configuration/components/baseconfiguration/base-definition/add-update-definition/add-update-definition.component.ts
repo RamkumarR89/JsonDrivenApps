@@ -53,6 +53,7 @@ export enum GridControl {
   styleUrls: ['./add-update-definition.component.css']
 })
 export class AddUpdateDefinitionComponent implements OnInit {
+  activeTab = 0;
   showControlGroup = true;
   showControlInfo = true;
   showControlProperties = true;
