@@ -98,7 +98,7 @@ export class CellRendererComponent implements OnInit, ICellRendererAngularComp {
       ? '/adminconfiguration/masterbasedefinition'
       : '/adminconfiguration/basedefinition';
 
-    this.router.navigate([redirectRoute]);
+    this.router.navigate([redirectRoute], { queryParams: { compid: componentId } });
   }
 
   onClickEdit(componentId: any) {

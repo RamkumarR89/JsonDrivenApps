@@ -7,6 +7,7 @@ export interface BaseDefinition {
   ctrlInfoJson: ControlInfo;
   ctrlPropertiesJson: ControlProperties;
   ctrlSourceJson: ControlSource;
+  ctrlGridJson?: ControlGrid;
 }
 
 export class BaseDefinitionDto {
@@ -29,6 +30,12 @@ export interface ControlInfo {
   ctrlname?: string;
   ctrltype?: string;
   displayname?: number;
+  ctrlGridJson?: ControlGrid;
+}
+
+export interface ControlGrid {
+  columns: Array<{ field: string; headerName: string; sortable?: boolean; filter?: boolean }>;
+  data: Array<any>;
 }
 
 export interface ControlProperties {

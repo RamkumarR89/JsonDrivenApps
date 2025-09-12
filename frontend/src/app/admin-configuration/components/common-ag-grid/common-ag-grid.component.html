@@ -1,0 +1,16 @@
+<div class="ag-grid-container" style="height: 400px; width: 100%; min-height: 350px; max-height: 50vh;">
+  <ng-container *ngIf="columnDefs && columnDefs.length > 0">
+    <ag-grid-angular
+      [columnDefs]="columnDefs"
+      [rowData]="rowData"
+      [sortingOrder]="['desc', 'asc', null]"
+      [animateRows]="true"
+      [pagination]="true"
+      [paginationPageSize]="10"
+      [enableRangeSelection]="true"
+      (gridReady)="onGridReady($event)"
+      (cellClicked)="onCellClicked($event)"
+      style="height: 100%; width: 100%;">
+    </ag-grid-angular>
+  </ng-container>
+</div>

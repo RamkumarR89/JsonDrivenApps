@@ -164,7 +164,7 @@ export class SidebarComponent implements OnInit {
         this.loading = false;
         
         // Load sample data as fallback
-        this.loadSampleMenuData();
+        // this.loadSampleMenuData();
       }
     });
   }
@@ -293,7 +293,7 @@ export class SidebarComponent implements OnInit {
 
   onMenuClick(item: HierarchicalMenuItem): void {
     console.log('Menu item clicked:', item);
-    
+    debugger;
     if (item.routerUrl) {
       // Navigate based on the component type
       if (item.isMaster) {

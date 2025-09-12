@@ -1,11 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Import theme system */
 @import url('./app/shared/styles/themes.css');
-
-/* Global font imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Make grid and card fill the page and card area */
+.page-container {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-sizing: border-box;
+  position: relative;
+  background: #f8fafc;
+}
+.content-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin: 0;
+  width: 100vw;
+  min-height: 80vh;
+  height: 80vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+.grid-full-container {
+  width: 100vw;
+  height: 100%;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.grid-full-container app-common-ag-grid {
+  flex: 1 1 auto;
+  width: 100vw;
+  height: 100%;
+  min-height: 400px;
+  box-sizing: border-box;
+  display: block;
+}
+/* You can add global styles to this file, and also import other style files */
 
 /* Global reset and base styles */
 * {
